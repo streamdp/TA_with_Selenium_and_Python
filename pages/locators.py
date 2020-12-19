@@ -20,13 +20,14 @@ class LoginPageLocators:
     REGISTER_BUTTON = (By.CSS_SELECTOR, "button[name='registration_submit']")
 
 
-class ItemPageLocators:
-    ITEM_PAGE_LINK = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
-    ITEM_PAGE_LINK_FOR_TEST_TEST = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
+class ProductPageLocators:
+    PRODUCT_PAGE_LINK = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    PRODUCT_PAGE_LINK_FOR_TEST_TEST = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
     MESSAGES = (By.CSS_SELECTOR, ".alertinner strong")
     ADD_TO_CART_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
     WRITE_REVIEW_BUTTON = (By.ID, "write_review")
-    ITEM_NAME = (By.CSS_SELECTOR, "div.product_main > h1")
-    ITEM_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
+    PRODUCT_NAME = (By.CSS_SELECTOR, "div.product_main > h1")
+    PRODUCT_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
     IN_STOCK_AVAILABILITY = (By.CSS_SELECTOR, ".instock.availability")
     TAG_STRONG = (By.TAG_NAME, "strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "")

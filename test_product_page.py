@@ -1,12 +1,12 @@
 import pytest
-from .pages.item_page import ItemPage
-from .pages.locators import ItemPageLocators
+from .pages.product_page import ProductPage
+from .pages.locators import ProductPageLocators
 
 
 def test_guest_can_to_go_to_item_page(browser):
-    page = ItemPage(browser, ItemPageLocators.ITEM_PAGE_LINK)
+    page = ProductPage(browser, ProductPageLocators.PRODUCT_PAGE_LINK)
     page.open()
-    page.should_be_item_page()
+    page.should_be_product_page()
 
 
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
@@ -23,7 +23,7 @@ def test_guest_can_to_go_to_item_page(browser):
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"])
 def test_guest_can_add_product_to_basket(browser, link):
-    page = ItemPage(browser, link)
+    page = ProductPage(browser, link)
     page.open()
     page.add_to_cart()
     page.solve_quiz_and_get_code()
