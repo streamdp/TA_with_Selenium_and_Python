@@ -4,7 +4,7 @@ from .locators import MainPageLocators
 
 class MainPage(BasePage):
     def go_to_login_page(self):
-        login_link = self.browser.find_element(MainPageLocators.LOGIN_LINK)
+        login_link = self.wait.until(self.EC.presence_of_element_located(MainPageLocators.LOGIN_LINK))
         login_link.click()
 
     def should_be_login_link(self):
