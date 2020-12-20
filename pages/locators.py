@@ -1,6 +1,18 @@
 from selenium.webdriver.common.by import By
 
 
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_BUTTON = (By.CSS_SELECTOR, ".basket-mini a.btn-default")
+    LANGUAGE_SELECTOR = (By.CSS_SELECTOR, "select[name='language']")
+
+
+class BasketPageLocators:
+    BASKET_ITEMS = (By.CSS_SELECTOR, ".basket-items")
+    CONTENT_INNER = (By.CSS_SELECTOR, "#content_inner > p")
+
+
 class MainPageLocators:
     LOGIN_LINK = (By.ID, "login_link")
     MAIN_SITE_LINK = "http://selenium1py.pythonanywhere.com/"
@@ -30,4 +42,4 @@ class ProductPageLocators:
     PRODUCT_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
     IN_STOCK_AVAILABILITY = (By.CSS_SELECTOR, ".instock.availability")
     TAG_STRONG = (By.TAG_NAME, "strong")
-    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages > div .alertinner")
