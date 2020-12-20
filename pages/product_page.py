@@ -16,17 +16,17 @@ class ProductPage(BasePage):
             "Name item is not available on this page "
 
     def add_to_cart(self):
-        add_to_cart_button = self.wait.until(self.EC.presence_of_element_located(ProductPageLocators.ADD_TO_CART_BUTTON))
+        add_to_cart_button = self.get_presence_of_element_located(ProductPageLocators.ADD_TO_CART_BUTTON)
         add_to_cart_button.click()
 
     def get_inline_messages(self):
         return self.wait.until(self.EC.presence_of_all_elements_located(ProductPageLocators.MESSAGES))
 
     def get_product_name(self):
-        return self.wait.until(self.EC.presence_of_element_located(ProductPageLocators.PRODUCT_NAME)).text.strip()
+        return self.get_presence_of_element_located(ProductPageLocators.PRODUCT_NAME).text.strip()
 
     def get_product_price(self):
-        return self.wait.until(self.EC.presence_of_element_located(ProductPageLocators.PRODUCT_PRICE)).text.strip()
+        return self.get_presence_of_element_located(ProductPageLocators.PRODUCT_PRICE).text.strip()
 
     def is_product_present_in_messages(self, product):
         messages = self.get_inline_messages()

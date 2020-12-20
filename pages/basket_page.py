@@ -30,11 +30,11 @@ languages = {
 
 class BasketPage(BasePage):
     def get_selected_language(self):
-        select = Select(self.wait.until(self.EC.presence_of_element_located(BasePageLocators.LANGUAGE_SELECTOR)))
+        select = Select(self.get_presence_of_element_located(BasePageLocators.LANGUAGE_SELECTOR))
         return select.first_selected_option.get_attribute("value")
 
     def should_be_correct_text(self):
-        inner_content = self.wait.until(self.EC.presence_of_element_located(BasketPageLocators.CONTENT_INNER)).text.strip()
+        inner_content = self.get_presence_of_element_located(BasketPageLocators.CONTENT_INNER).text.strip()
         correct_text = languages.get(self.get_selected_language())
         page_text = inner_content[:len(correct_text)]
         assert correct_text == page_text, \

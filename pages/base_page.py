@@ -20,14 +20,14 @@ class BasePage:
 
     def is_element_present(self, locator):
         try:
-            self.wait.until(self.EC.presence_of_element_located(locator))
+            self.get_presence_of_element_located(locator)
         except NoSuchElementException:
             return False
         return True
 
     def is_not_element_present(self, locator):
         try:
-            self.wait.until(self.EC.presence_of_element_located(locator))
+            self.get_presence_of_element_located(locator)
         except TimeoutException:
             return True
         return False
@@ -54,14 +54,20 @@ class BasePage:
         except NoAlertPresentException:
             print("No second alert presented")
 
+    def get_presence_of_element_located(self, locator):
+        return self.wait.until(self.EC.presence_of_element_located(locator))
+
     def go_to_login_page(self):
-        link = self.wait.until(self.EC.presence_of_element_located(BasePageLocators.LOGIN_LINK))
+        link = self.get_presence_of_element_located(BasePageLocators.LOGIN_LINK)
         link.click()
 
     def go_to_basket_page(self):
-        link = self.wait.until(self.EC.presence_of_element_located(BasePageLocators.BASKET_BUTTON))
+        link = self.get_presence_of_element_located(BasePageLocators.BASKET_BUTTON)
         link.click()
 
     def should_be_login_link(self):
         assert self.is_element_present(BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
+    def should_be_authorized_user(self):
+        assert self.is_element_present(BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"
